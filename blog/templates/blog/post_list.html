@@ -1,23 +1,9 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
-        <title>Rando blogi</title>
-    </head>
-    <body>
+{% extends "personal/base.html" %}
+{% block content %}
+    {% for post in posts %}
         <div>
-            <h1><a href="/">Rando blogi</a></h1>
+            <h7>{{ post.published_date|date:"Y-m-d" }} <a href="/blog/{{ post.id }}"> {{ post.title }}</a></h7>
+            {# <p>{{ post.text|safe|linebreaksbr }}</p> #}
         </div>
-        {% for post in posts %}
-            <div>
-                <h2><a href="">{{ post.title}}</a></h2>
-                <p>on {{ post.published_date }}</p>
-                <p>{{ post.text|safe|linebreaksbr }}</p>
-            </div>
-        {% endfor %}
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
