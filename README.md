@@ -18,4 +18,4 @@ The project has 2 apps. Personal - which is the app for the website itself and B
 Run the tests.py in 'blog/' direction as unittests.
 
 ## RUN
-change current working directory to djangoproj. Run python manage.py runserver
+Run python manage.py runserver.
